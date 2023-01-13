@@ -13,7 +13,6 @@ public class OnlinerTest extends OnlinerSetting {
   @Test
   public void verifyFilterProduserTest() {
     OnlinerStep onlinerStep = new OnlinerStep(driver);
-    onlinerStep.selectProducer();
-    Assert.assertNotEquals(onlinerStep.lgInput, onlinerStep.samsungInput);
+    Assert.assertTrue(onlinerStep.selectProducer().contains("LG"));
   }
 }

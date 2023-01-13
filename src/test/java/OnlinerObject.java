@@ -1,3 +1,4 @@
+import java.util.List;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -9,9 +10,10 @@ public class OnlinerObject {
   private By electronicButton = By.xpath("//li/descendant::span[contains(text(),'Электроника')]");
   private By tvAndVideoButton = By.xpath("//div[contains(text(),'Телевидение')]");
   private By TVButton = By.xpath("//div[contains(text(),'Телевидение')]/..//span[contains(text(),'Телевизоры')]");
-  private By filterProducerlLocator = By.xpath("//*[@id=\"schema-filter\"]/div[5]/div[4]/div[2]/ul");
    By lgInput = By.xpath("//ul[@class='schema-filter__list']//input[@value='lg']");
    By samsungInput = By.xpath("//ul[@class='schema-filter__list']//input[@value='samsung']");
+   By titleOfGoodContainer = By.xpath("//div[@class='schema-product__title']//span");
+   By popUpButton = By.xpath("//span[contains(@class,'button-style_another') and contains(text(),'Да, верно')]");
 
   public OnlinerObject(WebDriver driver) {
     this.driver = driver;
@@ -27,6 +29,11 @@ public class OnlinerObject {
     return buttonCatolog;
   }
 
+  public WebElement findPopUpButton() {
+    WebElement popUpButtont = driver.findElement(popUpButton);
+    return popUpButtont;
+  }
+
   public WebElement findButtonElectronical() {
     WebElement buttonElectronic = driver.findElement(electronicButton);
     return buttonElectronic;
@@ -37,9 +44,9 @@ public class OnlinerObject {
     return buttonTelevision;
   }
 
-  public WebElement findFilterProducer() {
-    WebElement filterProducer = driver.findElement(filterProducerlLocator);
-    return filterProducer;
+  public WebElement findElementOfFilter() {
+    WebElement findElementOfFilter = driver.findElement(titleOfGoodContainer);
+    return findElementOfFilter;
   }
 
   public WebElement findSelectLGLocator() {
