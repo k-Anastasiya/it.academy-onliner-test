@@ -14,7 +14,6 @@ public class OnlinerSetting {
         driver.manage().window().maximize();
         driver.get("https://www.onliner.by/");
         onlinerObject = new OnlinerObject(driver);
-
     }
 
     @After

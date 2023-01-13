@@ -3,50 +3,52 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
 public class OnlinerObject {
-    WebDriver driver;
-    By catologLocator = By.xpath("//*[@id=\"container\"]/div/div/header/div[2]/div/nav/ul[1]/li[1]/a[2]/span");
 
-    By electronicaLocator = By.xpath("//*[@id=\"container\"]/div/div/div/div/div[1]/ul/li[3]/span[2]/span");
-   By tvAndVideoLocator = By.xpath("//*[@id=\"container\"]/div/div/div/div/div[1]/div[4]/div/div[2]/div[1]/div/div[2]/div[1]");
-    By televizoryLocator = By.xpath("//*[@id=\"container\"]/div/div/div/div/div[1]/div[4]/div/div[2]/div[1]/div/div[2]/div[2]/div/a[1]");
-    By filterProducerlLocator = By.xpath("//*[@id=\"schema-filter\"]/div[5]/div[4]/div[2]/ul");
-    By selectLGLocator = By.xpath("//*[@id=\"schema-filter\"]/div[5]/div[4]/div[2]/ul/li[1]/label/span[1]/span");
-    By selectSamsungLocator = By.xpath("//*[@id=\"schema-filter\"]/div[5]/div[4]/div[2]/ul/li[2]/label/span[1]/span");
+  WebDriver driver;
+  private By catalogButton = By.xpath("//ul[@class='b-main-navigation']/child::li/descendant::span[contains(text(),'Каталог')]");
+  private By electronicButton = By.xpath("//li/descendant::span[contains(text(),'Электроника')]");
+  private By tvAndVideoButton = By.xpath("//div[contains(text(),'Телевидение')]");
+  private By TVButton = By.xpath("//div[contains(text(),'Телевидение')]/..//span[contains(text(),'Телевизоры')]");
+  private By filterProducerlLocator = By.xpath("//*[@id=\"schema-filter\"]/div[5]/div[4]/div[2]/ul");
+   By lgInput = By.xpath("//ul[@class='schema-filter__list']//input[@value='lg']");
+   By samsungInput = By.xpath("//ul[@class='schema-filter__list']//input[@value='samsung']");
 
-    public OnlinerObject(WebDriver driver) {
-        this.driver = driver;
-    }
-    public WebElement findButtonTvAndVideo() {
-        WebElement buttonTvAndVideo = driver.findElement(tvAndVideoLocator);
-        return buttonTvAndVideo;
+  public OnlinerObject(WebDriver driver) {
+    this.driver = driver;
+  }
 
-    }
+  public WebElement findButtonTvAndVideo() {
+    WebElement buttonTvAndVideo = driver.findElement(tvAndVideoButton);
+    return buttonTvAndVideo;
+  }
 
-    public WebElement findButtonCatolog() {
-        WebElement buttonCatolog = driver.findElement(catologLocator);
-        return buttonCatolog;
+  public WebElement findButtonCatolog() {
+    WebElement buttonCatolog = driver.findElement(catalogButton);
+    return buttonCatolog;
+  }
 
-    }
-    public WebElement findBurronElectronical() {
-        WebElement buttonElectronic = driver.findElement(electronicaLocator);
-        return buttonElectronic;
-    }
-    public WebElement findButtonTelevision() {
-        WebElement buttonTelevision = driver.findElement(televizoryLocator);
-        return buttonTelevision;
-    }
+  public WebElement findButtonElectronical() {
+    WebElement buttonElectronic = driver.findElement(electronicButton);
+    return buttonElectronic;
+  }
 
-    public WebElement findFilterProducer() {
-        WebElement filterProducer = driver.findElement(filterProducerlLocator);
-        return filterProducer;
-    }
-    public WebElement findSelectLGLocator() {
-        WebElement selectLG = driver.findElement(selectLGLocator);
-        return selectLG;
+  public WebElement findButtonTelevision() {
+    WebElement buttonTelevision = driver.findElement(TVButton);
+    return buttonTelevision;
+  }
 
-    }
-    public WebElement findSelectSamsungLocator() {
-        WebElement selectSamsung = driver.findElement(selectSamsungLocator);
-        return selectSamsung;
-    }
+  public WebElement findFilterProducer() {
+    WebElement filterProducer = driver.findElement(filterProducerlLocator);
+    return filterProducer;
+  }
+
+  public WebElement findSelectLGLocator() {
+    WebElement selectLG = driver.findElement(lgInput);
+    return selectLG;
+  }
+
+  public WebElement findSelectSamsungLocator() {
+    WebElement selectSamsung = driver.findElement(samsungInput);
+    return selectSamsung;
+  }
 }
